@@ -13,18 +13,22 @@ struct Book {
 //Custom debugger
 impl fmt::Debug for Book {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        if self.lang == "ku" {
-            write!(
+        match self.lang.as_str() {
+            "ku" => write!(
                 f,
-                "Pirtuk:  {{ Nav: {:?} Rews: {:?} Buha: {:?} }}",
-                self.name, self.is_active, self.price
-            )
-        } else {
-            write!(
+                "Pirtuk:  {{ Nav: {:?} Rews: {:?} Buha: {:?} Ziman: {:?}}}",
+                self.name, self.is_active, self.price, self.lang
+            ),
+            "tr" => write!(
                 f,
-                "Book:  {{ Name: {:?} Status: {:?} Price: {:?} }}",
-                self.name, self.is_active, self.price
-            )
+                "Kitap:  {{ Ad: {:?} Durum: {:?} Fiyat: {:?} Dil: {:?} }}",
+                self.name, self.is_active, self.price, self.lang
+            ),
+            _ => write!(
+                f,
+                "Book:  {{ Name: {:?} Status: {:?} Price: {:?} Language: {:?} }}",
+                self.name, self.is_active, self.price, self.lang
+            ),
         }
     }
 }
