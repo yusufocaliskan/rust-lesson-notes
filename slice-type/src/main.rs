@@ -1,9 +1,7 @@
-fn main() {
-    let t = String::from("Silav u re ");
+fn main() {}
 
-    find_first_word(&t);
-}
-fn find_first_word(s: &String) -> usize {
+#[allow(dead_code)]
+fn find_first_word(s: &str) -> usize {
     let bytes = s.as_bytes();
 
     for (i, &item) in bytes.iter().enumerate() {
@@ -13,4 +11,15 @@ fn find_first_word(s: &String) -> usize {
     }
 
     s.len()
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_first() {
+        let s = String::from("Silav u rrez");
+        assert_eq!(find_first_word(&s), 5);
+    }
 }
