@@ -35,6 +35,7 @@ impl fmt::Debug for Book {
 
 #[allow(dead_code)]
 fn create_book(_name: String, _is_active: bool, _price: i64, _lang: String) -> Book {
+
     Book {
         name: _name,
         is_active: _is_active,
@@ -51,6 +52,7 @@ fn main() {
         30,
         String::from("tr"),
     );
+
     println!("{:#?}", book);
     println!("{:#?}", book_tr);
 }

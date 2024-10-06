@@ -4,6 +4,9 @@ fn main() {}
 fn find_first_word(s: &str) -> usize {
     let bytes = s.as_bytes();
 
+    let tt = bytes.iter().enumerate();
+
+    println!("---> {:#?}", tt);
     for (i, &item) in bytes.iter().enumerate() {
         if item == b' ' {
             return i;
